@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ─── Core Palette ─── */
+  --coral: #E8534A;
+  --coral-dark: #d4443b;
+  --coral-light: #f06960;
+  --bg-light: #f2f2f0;
+  --bg-white: #ffffff;
+  --dark: #1a1a1a;
+  --dark-muted: #333333;
+  --muted: #7a7a7a;
+  --muted-light: #aaaaaa;
+  --border: #e0e0dc;
+
+  /* ─── Typography ─── */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+
+  /* ─── Layout ─── */
+  --sidebar-width: 260px;
+  --nav-height: 70px;
+
+  /* ─── Style Editor Defaults ─── */
+  --card-radius: 6px;
+  --card-border-width: 1px;
+  --card-border-color: #e0e0dc;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --heading-scale: 1;
+  --body-scale: 1;
+  
+  /* ─── Text & BG Fallbacks ─── */
+  --text-primary: #1a1a1a;
+  --text-on-coral: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ─── Shared Section Utilities ─── */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-label-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.section-label-line::after {
+  content: '';
+  flex: 0 0 48px;
+  height: 2px;
+  background: var(--coral);
+  border-radius: 2px;
+}
+
+.section-title-serif {
+  font-family: var(--font-serif);
+  font-size: calc(2.6rem * var(--heading-scale));
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.coral-link {
+  color: var(--coral);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.coral-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--coral);
+}
+
+.coral-link:hover {
+  color: var(--coral-dark);
+}
+
+/* ─── Pill Button (White on Coral, like "VIEW MORE") ─── */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--bg-white);
+  color: var(--coral);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 2px solid var(--bg-white);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-pill:hover {
+  background: transparent;
+  color: var(--bg-white);
+}
+
+/* ─── Outline Pill Button (for nav LOGIN style) ─── */
+.btn-outline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 28px;
+  background: transparent;
+  color: var(--dark);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 1.5px solid var(--dark);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-outline-pill:hover {
+  background: var(--dark);
+  color: var(--bg-white);
+}
+
+.stat-card {
+  background: var(--bg-white);
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-radius: var(--card-radius);
+  padding: 36px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.25s ease;
+  box-shadow: var(--card-shadow);
+}
+
+/* ─── Coral Solid Button ─── */
+.btn-coral {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--coral);
+  color: var(--bg-white);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 2px solid var(--coral);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-coral:hover {
+  background: var(--coral-dark);
+  border-color: var(--coral-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,83,74,0.3);
+}
+
+/* ─── Decorative Dot Matrix ─── */
+.dot-matrix {
+  position: absolute;
+  width: 160px;
+  height: 140px;
+  background-image: radial-gradient(circle, #1a1a1a 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* ─── Coral Circle Decorative ─── */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--coral);
+  pointer-events: none;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in { animation: fadeIn 0.6s ease-out both; }
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out both; }
+.animate-fade-in-left { animation: fadeInLeft 0.7s ease-out both; }
+.animate-fade-in-right { animation: fadeInRight 0.7s ease-out both; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out both; }
+
+/* ─── Scroll Reveal ─── */
+.reveal-on-scroll {
+  /* No default opacity: 0 here to prevent blank screens */
+}
+
+/* Animations only trigger when visible */
+.reveal-on-scroll.animate-fade-in-up { animation: none; opacity: 1; }
+.reveal-on-scroll.is-visible.animate-fade-in-up { animation: fadeInUp 0.7s ease-out both; }
+
+.reveal-on-scroll.animate-fade-in { animation: none; opacity: 1; }
+.reveal-on-scroll.is-visible.animate-fade-in { animation: fadeIn 0.6s ease-out both; }
+
+.reveal-on-scroll.animate-scale-in { animation: none; opacity: 1; }
+.reveal-on-scroll.is-visible.animate-scale-in { animation: scaleIn 0.6s ease-out both; }

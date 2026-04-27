@@ -1,0 +1,112 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-light);
+}
+
+.app-container.is-loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ─── Curtain Entrance ─── */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  pointer-events: none;
+}
+
+.curtain__panel {
+  flex: 1;
+  background: var(--dark);
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.curtain__panel--left { transform-origin: left; }
+.curtain__panel--right { transform-origin: right; }
+
+.curtain--open .curtain__panel--left { transform: translateX(-100%); }
+.curtain--open .curtain__panel--right { transform: translateX(100%); }
+
+.curtain__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.curtain--open .curtain__logo {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+}
+
+.curtain-logo-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  background: var(--dark);
+  padding: 40px 80px;
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-footer__logo {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+}
+
+.site-footer__copy {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+.site-footer__line {
+  width: 40px;
+  height: 2px;
+  background: var(--coral);
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 30px 20px;
+  }
+  .site-footer__inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
