@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { ContentProvider } from './contexts/ContentContext.tsx'
+import { FirebaseContentProvider } from './contexts/FirebaseContentContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ContentProvider>
+    <FirebaseContentProvider>
       <App />
-    </ContentProvider>
+    </FirebaseContentProvider>
   </React.StrictMode>,
 )
