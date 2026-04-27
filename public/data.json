@@ -1,0 +1,143 @@
+{
+  "content": {
+    "hero": {
+      "eyebrow": "Senior Full Stack Engineer",
+      "headline": "Engineering Scalable\nDigital Experiences",
+      "sub": "I specialize in architecting high-performance web applications that combine technical excellence with intuitive design. Proven track record in optimizing enterprise-scale systems.",
+      "roleTitle": "Lead Full Stack\nArchitect",
+      "name": "Asad Ali Janjua"
+    },
+    "about": {
+      "text": "With over 5 years of industry experience, I have led the development of critical software solutions for startups and established enterprises. My approach centers on performance, accessibility, and maintainable architecture."
+    },
+    "contact": {
+      "email": "asad@ali.dev",
+      "phone": "+1 (555) 123-4567",
+      "location": "San Francisco, CA"
+    },
+    "experience": {
+      "0": {
+        "id": 1,
+        "role": "Senior Full Stack Engineer",
+        "company": "Tech Corp",
+        "period": "2022 - Present",
+        "description": "Architected a multi-tenant enterprise SaaS platform, improving system throughput by 45% and reducing infrastructure costs by 20%. Led a team of 5 developers to deliver pixel-perfect React interfaces.",
+        "technologies": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "AWS"
+        ]
+      },
+      "1": {
+        "id": 2,
+        "role": "Software Engineer II",
+        "company": "Digital Solutions Inc.",
+        "period": "2019 - 2022",
+        "description": "Developed high-performance microservices handling 1M+ daily requests. Integrated real-time analytics dashboards and optimized database queries, resulting in 30% faster API response times.",
+        "technologies": [
+          "TypeScript",
+          "Next.js",
+          "Redis",
+          "Docker"
+        ]
+      },
+      "2": {
+        "id": 3,
+        "role": "Junior Web Developer",
+        "company": "Creative Agency",
+        "period": "2017 - 2019",
+        "description": "Collaborated with design teams to transform high-fidelity Figma mockups into responsive, accessible web experiences. Implemented SEO best practices that increased organic traffic by 25%.",
+        "technologies": [
+          "JavaScript",
+          "SCSS",
+          "Gulp",
+          "PHP"
+        ]
+      }
+    },
+    "projects": [
+      {
+        "id": 1,
+        "title": "Enterprise E-Commerce Engine",
+        "description": "A high-conversion e-commerce platform featuring a custom headless CMS, stripe integration, and real-time inventory management. Improved conversion rates by 12% post-launch.",
+        "image": "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1600&q=80",
+        "tags": [
+          "React",
+          "Redux Toolkit",
+          "Node.js",
+          "Stripe"
+        ],
+        "links": {
+          "live": "#",
+          "github": "#"
+        }
+      },
+      {
+        "id": 2,
+        "title": "Crypto Portfolio Tracker",
+        "description": "Financial dashboard providing real-time market data via WebSocket, portfolio PnL analysis, and automated tax reporting. Used by 5k+ active monthly users.",
+        "image": "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80",
+        "tags": [
+          "TypeScript",
+          "Recharts",
+          "CoinGecko API"
+        ],
+        "links": {
+          "live": "#",
+          "github": "#"
+        }
+      },
+      {
+        "id": 3,
+        "title": "Collaborative Workspace",
+        "description": "Real-time task management tool with live cursors, drag-and-drop workflow automation, and deep Jira integration. Built for high-velocity engineering teams.",
+        "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
+        "tags": [
+          "Next.js",
+          "Prisma",
+          "Socket.io",
+          "PostgreSQL"
+        ],
+        "links": {
+          "live": "#",
+          "github": "#"
+        }
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Sarah Jenkins",
+      "role": "CEO at StartupX",
+      "content": "Asad's ability to translate complex business requirements into elegant technical solutions is unmatched. He delivered our MVP 2 weeks ahead of schedule with 99.9% uptime.",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "role": "Engineering Manager",
+      "content": "One of the most detail-oriented engineers I've worked with. His focus on performance optimization helped us scale our user base by 3x without increasing server costs.",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      "verified": true
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "role": "Head of Product",
+      "content": "The attention to UX and motion design Asad brings to the table is rare for a full-stack developer. He doesn't just build features; he builds experiences.",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      "verified": true
+    },
+    {
+      "id": 1777270104443,
+      "name": "sarem",
+      "role": "Client",
+      "content": "this is a book",
+      "avatar": "https://www.gravatar.com/avatar/cdb4426fae28b2b8dce7f276d41493df?d=identicon&s=200",
+      "email": "saremahmadtariq@gmail.com"
+    }
+  ]
+}
