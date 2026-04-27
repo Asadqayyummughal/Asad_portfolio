@@ -1,21 +1,30 @@
 import { useState, useEffect } from 'react';
 import './ContactSection.css';
 import { Mail, Phone, MapPin, Send, Edit, Save, X } from 'lucide-react';
-import { useContent } from '../contexts/ContentContext';
+import { useFirebaseContent } from '../contexts/FirebaseContentContext';
 
 const ContactSection = () => {
-  const { content: globalContent, updateContent } = useContent();
+  const { content: globalContent, updateContent, submitContact } = useFirebaseContent();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-
+  
   const defaultContact = {
     email: 'hello@example.com',
     phone: '+1 234 567 8900',
     location: 'San Francisco, CA'
   };
-
+  
   const content = { ...defaultContact, ...(globalContent.contact || {}) };
   const [editContent, setEditContent] = useState(content);
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     setIsAdmin(localStorage.getItem('portfolio_admin') === 'true');
@@ -30,6 +39,22 @@ const ContactSection = () => {
   const handleCancel = () => {
     setEditContent(content);
     setIsEditing(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    try {
+      await submitContact(formData);
+      setFormStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setFormStatus('idle'), 3000);
+    } catch (error) {
+      console.error('Failed to submit form:', error);
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -119,28 +144,64 @@ const ContactSection = () => {
 
       {/* Right: Form */}
       <div className="contact-form-wrap animate-fade-in-right reveal-on-scroll" style={{ animationDelay: '0.2s' }}>
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
               <label className="form-label">Your Name</label>
-              <input type="text" className="form-input" placeholder="John Doe" required />
+              <input 
+                type="text" 
+                className="form-input" 
+                placeholder="John Doe" 
+                required 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+              />
             </div>
             <div className="form-group">
               <label className="form-label">Your Email</label>
-              <input type="email" className="form-input" placeholder="john@example.com" required />
+              <input 
+                type="email" 
+                className="form-input" 
+                placeholder="john@example.com" 
+                required 
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+              />
             </div>
           </div>
           <div className="form-group">
             <label className="form-label">Subject</label>
-            <input type="text" className="form-input" placeholder="Project Inquiry" required />
+            <input 
+              type="text" 
+              className="form-input" 
+              placeholder="Project Inquiry" 
+              required 
+              value={formData.subject}
+              onChange={(e) => setFormData({...formData, subject: e.target.value})}
+            />
           </div>
           <div className="form-group">
             <label className="form-label">Message</label>
-            <textarea className="form-textarea" placeholder="Tell me about your project..." rows={5} required />
+            <textarea 
+              className="form-textarea" 
+              placeholder="Tell me about your project..." 
+              rows={5} 
+              required 
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+            />
           </div>
-          <button type="submit" className="btn-coral">
-            Send Message <Send size={16} />
+          <button type="submit" className="btn-coral" disabled={formStatus === 'submitting'}>
+            {formStatus === 'submitting' ? 'Sending...' : (
+              <>Send Message <Send size={16} /></>
+            )}
           </button>
+          {formStatus === 'success' && (
+            <p className="form-success-message">Message sent successfully! I'll get back to you soon.</p>
+          )}
+          {formStatus === 'error' && (
+            <p className="form-error-message">Failed to send message. Please try again later.</p>
+          )}
         </form>
       </div>
     </section>
